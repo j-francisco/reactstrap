@@ -13,6 +13,7 @@ const propTypes = {
   className: PropTypes.node,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   cssModule: PropTypes.object,
+  onOpened: PropTypes.func,
 };
 
 const defaultProps = {
@@ -67,6 +68,15 @@ class Collapse extends Component {
     // else: do nothing.
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.onOpened &&
+        this.state.collapse === SHOWN &&
+        prevState &&
+        prevState.collapse !== SHOWN) {
+      this.props.onOpened();
+    }
+  }
+
   componentWillUnmount() {
     clearTimeout(this.transitionTag);
   }
@@ -81,7 +91,7 @@ class Collapse extends Component {
       cssModule,
       tag: Tag,
       ...attributes
-    } = omit(this.props, ['isOpen']);
+    } = omit(this.props, ['isOpen', 'onOpened']);
     const { collapse, height } = this.state;
     let collapseClass;
     switch (collapse) {

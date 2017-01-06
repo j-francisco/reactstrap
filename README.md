@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/reactstrap/reactstrap.svg?branch=master)](https://travis-ci.org/reactstrap/reactstrap) [![Coverage Status](https://coveralls.io/repos/github/reactstrap/reactstrap/badge.svg?branch=master)](https://coveralls.io/github/reactstrap/reactstrap?branch=master)
 
+# reactstrap-breezeway
+
+This is a fork of reactstrap to add an onOpened callback to the Collapse component.
+
 # reactstrap
 
 Easy to use React Bootstrap 4 components compatible with React 0.14.x and 15.x.
